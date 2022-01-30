@@ -28,20 +28,43 @@
         <h1 class="display-6">Weather Dashboard</h1>
         </div>        
     </div>
-    <div class="search">
 
+    <div class="container-fluid">
+    <div class="row">
+
+        <div class="left-side search col-lg-3">
+             <form>
+             <label for="search">Search for a City</label><br>
+             <input type="text" class="city">
+             </form>
+           
+            <button class="searchBtn">Search</button>
+    
+            <div class="results">
+            <p>Input goes here</p>
+            </div>
+        </div>  
+
+        <div class="right-side weather col-lg-9">
+
+            <div class="city">
+                <h1>City name</h1>
+                <p>temp</p>
+                <p>wind</p>
+                <p>humidity</p>
+                <p>uv index</p>
+            </div>
+
+            <div class="forecast">
+                <h1>5-Day Forecast:</h1>
+                <div id="day-1" class="dayCard"></div>
+                <div id="day-2" class="dayCard"></div>
+                <div id="day-3" class="dayCard"></div>
+                <div id="day-4" class="dayCard"></div>
+                <div id="day-5" class="dayCard"></div>
+            </div>
+        </div>
     </div>
-
-    <div class="results">
-
-    </div>
-
-    <div class="weather">
-
-    </div>
-
-    <div class="forecast">
-
     </div>
 
 
