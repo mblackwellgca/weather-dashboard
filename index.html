@@ -35,59 +35,60 @@
         <div class="left-side search col-lg-3">
              <form>
              <label for="search">Search for a City</label><br>
-             <input type="text" class="city">
+             <input type="text" id="userInput" class="city">
              </form>
            
-            <button class="searchBtn">Search</button>
+            <button class="searchBtn btn btn-primary mb-3">Search</button>
     
             <div class="searchHistory col-lg-3">
               <ul>
-                <button id="city-1">Placeholder Text</button>
-                <button id="city-2">Placeholder Tezt</button>
-                <button id="city-3">Placeholder Text</button>
-                <button id="city-4">Placeholder Text</button>
-                <button id="city-5">Placeholder Text</button>
-                <button id="city-6">Placeholder Tezt</button>
-                <button id="city-7">Placeholder Text</button>
-                <button id="city-8">Placeholder Text</button>
+                <button id="city-1" class="btn btn-primary mb-3">Placeholder Text</button>
+                <button id="city-2" class="btn btn-primary mb-3">Placeholder Tezt</button>
+                <button id="city-3" class="btn btn-primary mb-3">Placeholder Text</button>
+                <button id="city-4" class="btn btn-primary mb-3">Placeholder Text</button>
+                <button id="city-5" class="btn btn-primary mb-3">Placeholder Text</button>
+                <button id="city-6" class="btn btn-primary mb-3">Placeholder Tezt</button>
+                <button id="city-7" class="btn btn-primary mb-3">Placeholder Text</button>
+                <button id="city-8" class="btn btn-primary mb-3">Placeholder Text</button>
               </ul>
             </div>
         </div>  
 
         <div class="right-side weather col-lg-9">
 
-            <div class="city">
-                <h1>City name</h1>
-                <p>temp</p>
-                <p>wind</p>
-                <p>humidity</p>
-                <p>uv index</p>
-            </div>
-
+            <div class="row mr-0">
+              <div class="city col-lg-11 m-3">
+                  <h1 id="cityName"></h1>
+                  <p id="temp"></p>
+                  <p id="wind"></p>
+                  <p id="humidity"></p>
+                  <p id="uvIndex"></p>
+              </div>
+            </div>  
             <div class="forecast">
                 <h2>5-Day Forecast:</h2>
                 <div class="row">
-                  <div id="day-1" class="dayCard">
+                  <div id="day-1" class="dayCard bg-primary m-2 col-md-2">
                     <p>temp</p>
                     <p>wind</p>
                     <p>humidity</p>
                   </div>
-                  <div id="day-2" class="dayCard">
+                  <div id="day-2" class="dayCard bg-primary m-2 col-md-2">
                     <p>temp</p>
                     <p>wind</p>
                     <p>humidity</p>
                   </div>
-                  <div id="day-3" class="dayCard">
+                  <div id="day-3" class="dayCard bg-primary m-2 col-md-2">
                     <p>temp</p>
                     <p>wind</p>
                     <p>humidity</p>
                   </div>
-                  <div id="day-4" class="dayCard">
+                  <div id="day-4" class="dayCard bg-primary m-2 col-md-2">
                     <p>temp</p>
                     <p>wind</p>
                     <p>humidity</p>
                   </div>
-                  <div id="day-5" class="dayCard">
+                  <div id="day-5" class="dayCard bg-primary m-2 col-md-2">
                     <p>temp</p>
                     <p>wind</p>
                     <p>humidity</p>
