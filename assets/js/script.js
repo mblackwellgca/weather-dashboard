@@ -1,16 +1,20 @@
 
+// assigning a unique API to a variable
+const apiKey = "1ad4965b69077cc77a3ec509434002cd";
+
 function getApi() {
-    var requestUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}'
+    var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?id=' + city + '&appid=' + apiKey;
+
+    fetch(requestUrl)
+        .then(function (response){
+            return response.json();
+        })
+        .then(function (data){
+            console.log(data)
+        })
 }
-fetch(requestUrl)
-    .then(function (response){
-        return response.json();
-    })
-    .then(function (data){
-        console.log(data)
-    })
 
-
+$('.searchButton').on('click', getApi);
 
     // brings the saved text back from local storage into the designated row
     $('#city-1 .description').val(localStorage.getItem('city-1'));
