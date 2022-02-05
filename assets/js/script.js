@@ -1,3 +1,11 @@
+var userInput = document.getElementById("userInput");
+var cityName = document.getElementById("cityName");
+var temp = document.getElementById("temp");
+var wind = document.getElementById("wind");
+var humidity = document.getElementById("humidity");
+var uvIndex = document.getElementById("uvIndex");
+var forecast = document.getElementById("forecast");
+var searchHistory = document.getElementById("searchHistory");
 
 // assigning a unique API to a variable
 const apiKey = "1ad4965b69077cc77a3ec509434002cd";
