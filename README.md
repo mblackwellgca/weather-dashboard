@@ -31,6 +31,8 @@ The following animation demonstrates the application functionality:
 ## Credits:
 * Sandra Smith
 * Christopher Ponzio https://github.com/ChristopherPonzio
+* Ben Lopez AskBCS Learning Assistant
+* https://openweathermap.org/api/one-call-api
 * https://www.w3schools.com/js/
 * https://momentjs.com
 * https://api.jqueryui.com/
