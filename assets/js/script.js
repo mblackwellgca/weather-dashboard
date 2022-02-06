@@ -7,14 +7,13 @@ var forecast = document.getElementById("forecast");
 var city = document.getElementById("city");
 var pic = document.getElementById("pic");
 var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
-
+var cityName = cityName;
 
 
 // assigning a unique API to a variable
 const apiKey = "1ad4965b69077cc77a3ec509434002cd";
-var cityName = cityName;
 
-// returns the items called
+// returns the requested
 function renderItems(city, data) {
     renderCurrentWeather(city, data.current, data.timezone);
     renderForecast(data.daily, data.timezone);
@@ -24,13 +23,12 @@ function renderItems(city, data) {
 function getLatLon(location) {
     var { lat, lon } = location;
     var city = location.name;
-    console.log('getLatLon fired!', userInput)
+    console.log('getLatLon fired!', '#userInput');
     var latLonUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,daily&appid=${apiKey}`;
 
     fetch(latLonUrl)
         .then(function (response) {
             return response.json();
-            console.log(response);
         })
         .then(function (data) {
             renderItems(city, data);
@@ -38,15 +36,12 @@ function getLatLon(location) {
         })
 }
 
-
-
-var searchInput = document.querySelector("userInput");
+// fetching current weather based on user input
+var searchInput = document.querySelector("#userInput");
 var search = searchInput.value.trim();
 
-
-// fetching weather based on user input
 function getApi(search) {
-    var requestUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${weatherApiKey}`;
+    var requestUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${apiKey}`;
 
     fetch(requestUrl)
         .then(function (response){
@@ -59,13 +54,19 @@ function getApi(search) {
         })
 }
 
+// fetching the weather image
+
+
+
+
+
 //function savesearchHistory(searchHistory) {
     //var value = $(this).siblings("#city").value;
 
     //localStorage.setItem(cityName, value);
 //}
 
-$('.searchBtn').on('click', getLatLon);
+$('.searchBtn').on('click', getApi);
 
 // brings the saved text back from local storage into the html designated row
     // $('#city-1').val(localStorage.getItem('city-1'));
