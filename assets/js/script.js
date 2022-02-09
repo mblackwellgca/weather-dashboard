@@ -24,33 +24,41 @@ function getLatLon(location) {
     var { lat, lon } = location;
     var city = location.name;
     console.log('getLatLon fired!', '#userInput');
-    var latLonUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,daily&appid=${apiKey}`;
+    var latLonUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly&appid=${apiKey}`;
 
     fetch(latLonUrl)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-            renderItems(city, data);
+            //renderItems(city, data);
             console.log(data);
         })
 }
 
 // fetching current weather based on user input
 var searchInput = document.querySelector("#userInput");
-var search = searchInput.value.trim();
+var search;
 
+function handleSubmit(event) {
+    event.preventDefault()
+    search = searchInput.value.trim();
+    searchInput.value = "";
+    getApi(search);
+}
+
+ // console.log(search);
 function getApi(search) {
     var requestUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${apiKey}`;
+    console.log(requestUrl);
 
     fetch(requestUrl)
         .then(function (response){
             return response.json();
         })
         .then(function (data){
-            appendToHistory(search);
+            //appendToHistory(search);
             getLatLon(data[0]);
-            console.log(data)
         })
 }
 
@@ -66,7 +74,7 @@ function getApi(search) {
     //localStorage.setItem(cityName, value);
 //}
 
-$('.searchBtn').on('click', getApi);
+$('.searchBtn').on('click', handleSubmit);
 
 // brings the saved text back from local storage into the html designated row
     // $('#city-1').val(localStorage.getItem('city-1'));
