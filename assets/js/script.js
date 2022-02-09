@@ -14,26 +14,9 @@ var cityName = cityName;
 const apiKey = "1ad4965b69077cc77a3ec509434002cd";
 
 // returns the requested
-function renderItems(city, data) {
-    renderCurrentWeather(city, data.current, data.timezone);
+function renderItems(cityCard, data) {
+    renderCurrentWeather(cityCard, data.current, data.timezone);
     renderForecast(data.daily, data.timezone);
-}
-
-// fetching lat and lon for city search
-function getLatLon(location) {
-    var { lat, lon } = location;
-    var city = location.name;
-    console.log('getLatLon fired!', '#userInput');
-    var latLonUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly&appid=${apiKey}`;
-
-    fetch(latLonUrl)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            //renderItems(city, data);
-            console.log(data);
-        })
 }
 
 // fetching current weather based on user input
@@ -62,27 +45,45 @@ function getApi(search) {
         })
 }
 
-// fetching the weather image
+// fetching weather using lat and lon for city search
+function getLatLon(location) {
+    var { lat, lon } = location;
+    var city = location.name;
+    console.log('getLatLon fired!', '#userInput');
+    var latLonUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly&appid=${apiKey}`;
+    var temp = getElementById("#temp");
+    var wind = getElementById("#wind");
+    var humidity = getElementById("#humidity");
+    var uvIndex = getElementById("#uvIndex");
+    var pic = getElementById("pic");
+    
+
+    fetch(latLonUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            // renderItems(cityCard, data);
+            const currentDate = new DataTransfer(response.data.dt * 1000);
+            const day = currentDate.getDate();
+            const month = currentDate.getMonth() +1;
+            const year = currentDate.getFullYear();
+            let weatherPic = response.data.weather[0].icon;
+            cityNameEl.innerHTML = response.data.name + "(" + month + "/" + day + "/" + year + ")";
+            pic.setAttribute
+            console.log(data);
+        })
+}
 
 
 
 
+// append to history
+function appendToHistory(searchHistory) {
+    var value = $(this).siblings("#city").value;
 
-//function savesearchHistory(searchHistory) {
-    //var value = $(this).siblings("#city").value;
-
-    //localStorage.setItem(cityName, value);
-//}
+    localStorage.setItem(cityName, value);
+}
 
 $('.searchBtn').on('click', handleSubmit);
-
-// brings the saved text back from local storage into the html designated row
-    // $('#city-1').val(localStorage.getItem('city-1'));
-    // $('#city-2').val(localStorage.getItem('city-2'));
-    // $('#city-3').val(localStorage.getItem('city-3'));
-    // $('#city-4').val(localStorage.getItem('city-4'));
-    // $('#city-5').val(localStorage.getItem('city-5'));
-    // $('#city-6').val(localStorage.getItem('city-6'));
-    // $('#city-7').val(localStorage.getItem('city-7'));
-    // $('#city-8').val(localStorage.getItem('city-8'));
     
