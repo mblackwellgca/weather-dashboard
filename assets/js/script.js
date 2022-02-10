@@ -59,8 +59,8 @@ function renderHistory() {
     historyItem.setAttribute("class", "historyBtn btn btn-primary mb-3");
     historyItem.innerHTML = searchHistory[i];
     historyEl.append(historyItem);
-    historyBtn.addEventListener("click", function() {
-        getApi(historyBtn.value);
+    historyItem.addEventListener("click", function() {
+        getApi(searchHistory.value);
     })
     }  
 }
