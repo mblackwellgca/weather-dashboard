@@ -3,8 +3,8 @@ A weather dashboard that will run in the browser and feature dynamically updated
 
 
 ## Live Links
-* Published: 
-* Repository: 
+* Published: https://mblackwellgca.github.io/weather-dashboard/ 
+* Repository: https://github.com/mblackwellgca/weather-dashboard 
 
 ## Description
 To see the weather outlook for multiple cities, use the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) to retrieve weather data for cities.
@@ -26,7 +26,7 @@ GIVEN a weather dashboard with form inputs
 ## Usage
 The following animation demonstrates the application functionality:
 
-![he weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for the selected city.]()
+![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for the selected city.]()
 
 ## Credits:
 * Sandra Smith
